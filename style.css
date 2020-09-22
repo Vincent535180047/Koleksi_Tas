@@ -11,3 +11,7 @@
 .description {
    text-align: inherit;
 }
+
+body{
+    background-color: rgb(93, 152, 187);
+}
