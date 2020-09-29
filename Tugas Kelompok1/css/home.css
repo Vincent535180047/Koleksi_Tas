@@ -1,0 +1,27 @@
+.carousel-item {
+  height: 670px;
+}
+
+.carousel-item img {
+  margin-top: -120px;
+}
+
+.carousel-item .display-4 {
+  margin-top: -500px;
+}
+
+.btn {
+  background-color: snow;
+  border: none;
+  border-radius: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.container {
+  text-align: center; 
+}
+
+.modal-backdrop {
+  z-index: -1;
+}
