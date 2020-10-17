@@ -25,3 +25,25 @@
 .modal-backdrop {
   z-index: -1;
 }
+
+#info {
+  margin-left: 50px;
+  padding: 30px;
+  text-align: center;
+  
+}
+
+.facts .col-md-6 {
+  text-align: center;
+  width: 750px;
+  background-image: url(../img/bright_squares.png);
+  padding: 80px;
+  border-radius: 50%;
+}
+
+.trends {
+  background-image: url(../img/triangle-mosaic.png);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
