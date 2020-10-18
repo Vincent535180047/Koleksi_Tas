@@ -1,6 +1,9 @@
 body {
     background-image: url(../img/background.jpg);
+    
 }
+
+
 
 .carousel-item {
   height: 670px;
@@ -23,7 +26,8 @@ body {
 }
 
 .container {
-  text-align: center; 
+  text-align: center;   
+
 }
 
 .modal-backdrop {
