@@ -9,16 +9,15 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/home.css">
-  <title>Home Page</title>
-
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
-     <script src="../js/home.js"></script>
+  <script src="../js/home.js"></script>
+  <title>Home Page</title>
 </head>
 
 <body>
 
        <!--Navbar-->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-transparant fixed-top">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
       <div class="container">
           <h1><i class="fas fa-shopping-bag mr-4 text-white"></i></h1>
           <a class="navbar-brand font-weight-bold text-white">Collection Bag</a>
@@ -27,7 +26,7 @@
            </button>
       
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mr-4">
+          <ul class="navbar-nav ml-auto mr-4 nav-fill">
               <li class="nav-item active">
                 <a class="nav-link text-white" href="../html/home.html"> Home <span class="sr-only">(current)</span></a>
               </li>
@@ -37,25 +36,30 @@
               <li class="nav-item active">
                 <a class="nav-link text-white" href="../html/about.html"> About Us <span class="sr-only">(current)</span></a>
               </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="#BestSeller" >BestSeller</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="#FunFacts " >Fact</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="#TrendJustYou" >Trend</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="#Testimoni" >Testimoni</a>
+              </li>
+
             </div>  
               
-          <h6>
-            <br>
-             <a href="#BestSeller" >BestSeller</a>
-            <br>
-             <a href="#FunFacts " >FunFact</a>
-            <br>
-             <a href="#TrendJustYou" >TrendJustYou</a>
-            <br>
-             <a href="#Testimoni" >Testimoni</a>
-          </h6>
-            </ul>
-          </div> 
+            
+          </ul>
+        </div>
+          
         
 
         <div class="nav-item active">
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-lg bg-danger" data-toggle="modal" data-target="#myModal">Contact Person</button>
+        <button type="button" class="btn btn-info btn-lg bg-dark" data-toggle="modal" data-target="#myModal">Contact Person</button>
 
         <!-- Modal -->
         <div id="myModal" class="modal" role="dialog">
@@ -88,7 +92,7 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="../img/slider/s1.jpg" alt="First slide">
+          <img class="d-block w-100" src="../img/slider/bg carosell.jpg" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
             <h1 class="display-4">Selamat Datang Di <br><span class="font-weight-bold">Collection Bag Store</span></br></h1>
               <hr class="my-4">
@@ -101,7 +105,7 @@
           </div>
         
         <div class="carousel-item">
-          <img class="d-block w-100" src="../img/slider/s2.jpg" alt="Second slide">
+          <img class="d-block w-100" src="../img/slider/bg carosell 2.jpg" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
             <h1 class="display-4">Selamat Datang Di <br><span class="font-weight-bold">Collection Bag Store</span></br></h1>
               <hr class="my-4">
@@ -116,7 +120,7 @@
         </div>
         
         <div class="carousel-item">
-          <img class="d-block w-100" src="../img/slider/s3.jpg" alt="Third slide">
+          <img class="d-block w-100" src="../img/slider/bg carosell 4.jpg" alt="Third slide">
           <div class="carousel-caption d-none d-md-block">
             <h1 class="display-4">Selamat Datang Di <br><span class="font-weight-bold">Collection Bag Store</span></br></h1>
               <hr class="my-4">
@@ -142,15 +146,17 @@
       </a>
     </div>
 
+
+      <div data-spy="scroll" data-target="navbar" data-offset="0">
         <!--Card-->
-        <div id="BestSeller" class="container mt-2" style="color: white;">
-          <h2>BEST SELLER BAG</h2>
+        <div id="BestSeller" class="container mt-2" style="color: white;" >
+          <h2 >BEST SELLER BAG</h2>
           <div class="row">
             <div class="col-md-3">
               <div class="card text-center">
                 <img src="../html/img/Product/Chanel/proddd3.jpg" class="card-img-top" width="250" height="250">
                 <div class="card-body">
-                  <p class="card-text">Chanel</p>
+                  <p class="card-text" style="color:black">Chanel</p>
                   </div>
               </div>
             </div>
@@ -331,6 +337,7 @@
           </div>
         </div>
     </div>
+  </div>
 
       <!--Maps-->
      <section id="who">
