@@ -5,6 +5,8 @@ const layouts = require('express-ejs-layouts');
 
 const app = express();
 
+const db = require('./public/js/db.js');
+
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
