@@ -13,7 +13,7 @@
   <script src="../js/home.js"></script>
   <meta name="google-signin-client_id" content="61255969841-cub62k7lnb20ataak2rc0h7uo02usffj.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-
+  
   <script>
     function showRegister() {
         $('#loginacc').css('display', 'none');
@@ -78,53 +78,52 @@
               </div>
               <div class="modal-body">
                 <!--Form Login-->
-                <form id="loginacc" action="router" method="POST" >
-                <table>
-                  <tr>
-                    <td>Email: </td>
-                    <td><input type="text" name="email"></td>
-                  </tr>
-                  <tr>
-                    <td>Password: </td>
-                    <td><input type="password" name="password"></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <button type="button" class="btn btn-secondary bg-dark" style="color: white;">Login</a></button>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-secondary bg-dark" onclick="showRegister()" style="color: white;">Sign up</a></button>
-                    </td>
-                    <td>
-                      <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                    </td>
-                  </tr>
-                </table>
+                <form id="loginacc" action="user/login" method="POST">
+                  <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" name="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" name="password" class="form-control" id="inputPassword">
+                  </div>
+                  <table>
+                    <tr>
+                      <td>
+                        <button type="submit" class="btn btn-secondary bg-dark" style="color: white;">Login</a></button>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-secondary bg-dark" onclick="showRegister()" style="color: white;">Sign up</a></button>
+                      </td>
+                      <td>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                      </td>
+                    </tr>
+                  </table>
                 </form>
 
                 <!--Form Regist-->
-                <form id="registeracc" style="display:none;" action="route" method="POST">
+                <form id="registeracc" style="display:none;" action="user/register" method="POST">
+                  <div class="form-group">
+                    <label for="inputNama">Nama</label>
+                    <input type="text" name="nama" class="form-control" id="inputNama">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" name="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword1">Password</label>
+                    <input type="password" name="password1" class="form-control" id="inputPassword1">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword2">Re-type Password</label>
+                    <input type="password" name="password2" class="form-control" id="inputPassword2">
+                  </div>
                   <table>
                     <tr>
-                      <td>Nama: </td>
-                      <td><input type="text" name="nama"></td>
-                    </tr>
-                    <tr>
-                      <td>Email: </td>
-                      <td><input type="text" name="email"></td>
-                    </tr>
-                    <tr>
-                      <td>Password: </td>
-                      <td><input type="password" name="password1"></td>
-                    </tr>
-                    <tr>
-                      <td>Re-type Password: </td>
-                      <td><input type="password" name="password2"></td>
-                    </tr>
-                    <tr>
                       <td>
-                        <button type="button" class="btn btn-secondary bg-dark">
-                        <a href="#" style="color:white;text-decoration: none;">Register</a></button>
+                        <button type="submit" class="btn btn-secondary bg-dark" style="color: white;">Register</a></button>
                       </td>
                       <td>
                         <button type="button" class="btn btn-secondary bg-dark" onclick="showLogin()" style="color: white;">Login</a></button>
@@ -482,7 +481,7 @@
       </div>
 
       <div class="form-group text-white">
-        <input type="submit" name="simpan" class="btn btn-primary" value="simpan komentar">
+        <button type="submit" name="simpan" class="btn btn-primary bg-dark">Simpan Komentar
     </div>
         </form>
       </div>

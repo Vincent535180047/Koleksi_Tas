@@ -35,11 +35,11 @@ app.set("layout extractScripts", true)
 // routes
 const index = require('./routes/index');
 const auth = require('./routes/auth');
-const todo = require('./routes/todo');
+const user = require('./routes/user')
 
 app.use('/', index);
 app.use('/auth', auth);
-app.use('/todo', todo);
+app.use('/user', user);
 
 app.listen(3000);
 console.log('Server runs at port 3000...');

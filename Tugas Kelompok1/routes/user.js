@@ -5,17 +5,38 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   
 });
+const account = require('../public/js/account')
+const db = require('../public/js/db')
 
-router.post('account/login', async (req, res) => {
-    const account = require('public/js/account.js')
-    const db = require('public/js/db.js')
+router.post('/register', async (req, res) => {
     const email = req.body.email;
+    const nama = req.body.nama;
+    const password1 = req.body.password1;
+    const password2 = req.body.password2;
+    if (password1 === password2) {
+        const newAccount = new account({
+            nama: nama,
+            email: email,
+            password: password1
+        });
+        newAccount.save((error, data) => {
+            if (error) {
+                console.log(error);
+            }
+        });
+    }
+    else {
+        //
+    }
+});
+
+router.post('/login', async (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password1;
 
     var myQuery = account.findOne({
         email: email 
     })
-
-    const password = req.body.password;
     
     myQuery.exec((error, data) => {
         if (data) {
@@ -32,7 +53,7 @@ router.post('account/login', async (req, res) => {
             }
         }
         else {
-            console.log('Error!');
+            console.log(error);
         }
     });
 })
