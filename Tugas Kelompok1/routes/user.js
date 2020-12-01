@@ -2,9 +2,14 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-  
+router.get('/login', async (req, res) => {
+    res.render('pages/login.ejs'), {layout: false};
 });
+
+router.get('/register', async (req, res) => {
+    res.render('pages/register.ejs'), {layout: false};
+});
+
 const account = require('../public/js/account')
 const db = require('../public/js/db')
 
@@ -24,9 +29,10 @@ router.post('/register', async (req, res) => {
                 console.log(error);
             }
         });
+        res.render('pages/login')
     }
     else {
-        //
+        res.render('pages/register', {error: 'Password must be a match.', layout: false})
     }
 });
 
@@ -46,7 +52,7 @@ router.post('/login', async (req, res) => {
                 }
                 else {
                     res.render('pages/login', { error: 'Wrong email or password.' });
-                }
+                }   
             }
             else {
                 res.render('pages/login', { error: 'Email is not registered as member.' });

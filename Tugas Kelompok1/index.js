@@ -23,8 +23,8 @@ app.use(session({
 }));
 
 // use layouts
-app.use(layouts);
-app.set('layout', 'layouts/main.ejs');
+//app.use(layouts);
+//app.set('layout', 'layouts/main.ejs');
 
 // place all styles block in the layout at the head
 app.set("layout extractStyles", true)
@@ -34,11 +34,9 @@ app.set("layout extractScripts", true)
 
 // routes
 const index = require('./routes/index');
-const auth = require('./routes/auth');
 const user = require('./routes/user')
 
 app.use('/', index);
-app.use('/auth', auth);
 app.use('/user', user);
 
 app.listen(3000);
