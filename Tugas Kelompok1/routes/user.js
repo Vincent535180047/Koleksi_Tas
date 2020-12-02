@@ -68,7 +68,6 @@ router.post('/register', async (req, res) => {
                   email,
                   password : hash,
                 });
-
                 //newUser.password = hash;
     
                 //simpan user
