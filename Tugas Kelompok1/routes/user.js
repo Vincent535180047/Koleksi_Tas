@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const user = require ("")
+
 router.get('/login', async (req, res) => {
     res.render('pages/login.ejs'), {layout: false};
 });
