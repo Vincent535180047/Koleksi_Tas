@@ -30,19 +30,19 @@
             <form id="loginacc" action="/user/login" method="POST">
             <div class="form-group">
               <label for="inputEmail">Email</label>
-              <input type="email" name="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+              <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp" 
+              placeholder="Enter Email" >
             </div>
             <div class="form-group">
               <label for="inputPassword">Password</label>
-              <input type="password" name="password" class="form-control" id="inputPassword">
+              <input type="password" id="password" name="password" class="form-control" 
+              placeholder="Enter Password">
             </div>
             <table>
               <tr>
                 <td>
+                  <%- include ("../partials/messages"); %>
                   <button type="submit" class="btn btn-secondary bg-dark" style="color: white;">Login</button>
-                  <% if (locals.error) { %>
-                    <span class="text-danger pl-2"><%= error %></span>
-                    <% } %>
                 </td>
               </tr>
             </table>

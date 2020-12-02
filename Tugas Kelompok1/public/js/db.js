@@ -6,8 +6,9 @@ dbUrl,
 );
 const db = mongoose.connection;
 
-db.once("open", () => {
+db.then("open", () => {
 console.log("Successfully connected to MongoDB using mongoose.");
 });
 
+db.catch((err) => console.log(err));
 module.exports = db;

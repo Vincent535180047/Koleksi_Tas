@@ -1,67 +1,92 @@
 const express = require('express');
-
 const router = express.Router();
+const bcrypt = require("bcryptjs");
+const passport = require("passport");
 
-router.get('/login', async (req, res) => {
-    res.render('pages/login.ejs'), {layout: false};
-});
+const User = require('../public/js/account')
 
-router.get('/register', async (req, res) => {
-    res.render('pages/register.ejs'), {layout: false};
-});
+router.get("/login", (req, res) => res.render("pages/login"));
 
-const account = require('../public/js/account')
-const db = require('../public/js/db')
+router.get("/register", (req, res) => res.render("pages/register"));
+
+//login handle
+router.post("/login", (req, res, next) => {
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/user/login",
+      failureFlash: true,
+    })(req, res, next);
+  });
 
 router.post('/register', async (req, res) => {
     const email = req.body.email;
     const nama = req.body.nama;
     const password1 = req.body.password1;
     const password2 = req.body.password2;
-    if (password1 === password2) {
-        const newAccount = new account({
-            nama: nama,
-            email: email,
-            password: password1
-        });
-        newAccount.save((error, data) => {
-            if (error) {
-                console.log(error);
-            }
-        });
-        res.render('pages/login')
+
+    let errors = []
+
+    if (!nama || !email || !password1 || !password2) {
+        errors.push({ msg: "Harap isi semua data yang di minta" });
     }
+
+    if (password1 !== password2) {
+        errors.push({ msg: "Password tidak sama" });
+    }
+
+    if (errors.length > 0) {
+        res.render("pages/register", {
+          errors,
+          nama,
+          email,
+          password1,
+          password2,
+        });
+    } 
     else {
-        res.render('pages/register', {error: 'Password must be a match.', layout: false})
-    }
-});
+        //validasi oke lanjut database
+        User.findOne({ email: email }).then((user) => {
+          if (user) {
+            //usernya ada
+            errors.push({ msg: "Email sudah terdaftar" });
+            res.render("pages/register", {
+              errors,
+              nama,
+              email,
+              password1,
+              password2,
+            });
+          } 
+          else {
+            //hash password
+            bcrypt.genSalt(10, (err, salt) =>
+              bcrypt.hash(password1, salt, (err, hash) => {
+                if (err) throw err;
+                //set password jadi hash
+                const newUser = new User({
+                  nama,
+                  email,
+                  password : hash,
+                });
 
-router.post('/login', async (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password1;
-
-    var myQuery = account.findOne({
-        email: email 
-    })
+                //newUser.password = hash;
     
-    myQuery.exec((error, data) => {
-        if (data) {
-            if (data.email === email) {
-                if (data.password === password) {
-                    res.redirect('pages/home.ejs');
-                }
-                else {
-                    res.render('pages/login', { error: 'Wrong email or password.' });
-                }   
-            }
-            else {
-                res.render('pages/login', { error: 'Email is not registered as member.' });
-            }
-        }
-        else {
-            console.log(error);
-        }
-    });
-})
+                //simpan user
+                newUser
+                  .save()
+                  .then((user) => {
+                    req.flash(
+                      "success_msg",
+                      "Anda berhasil registrasi, Silahkan Login"
+                    );
+                    res.redirect("/user/login");
+                  })
+                  .catch((err) => console.log(err));
+              })
+            );
+          }
+        });
+  }
+});
 
 module.exports = router;
