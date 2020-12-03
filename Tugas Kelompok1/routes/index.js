@@ -4,13 +4,7 @@ const router = express.Router();
 
 const { ensureAuthenticated } = require("../public/js/auth");
 
-/*
-router.get('/', async (req, res) => {
-  res.render('pages/login', {layout: false});
-});
-*/
-
-//dasboard
+//abis login pindah home
 router.get("/", ensureAuthenticated, (req, res) =>
   res.render("pages/home", {
     nama: req.user.nama,

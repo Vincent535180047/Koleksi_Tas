@@ -50,60 +50,32 @@
             <a class="nav-link text-white" href="../html/about.html"> About Us <span class="sr-only">(current)</span></a>
           </li>
           <li>
-              <!-- Trigger the modal with a button -->
-              <button type="button" class="btn btn-info btn-lg bg-primary" data-toggle="modal" data-target="#myModal">logout</button>
-            
-              <!-- Modal -->
-              <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Logout</h4>
-                    </div>
-                    <div class="modal-body">
-                      <p>Apakah anda yakin untuk logout?</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default bg-secondary"> 
-                        <a href="https://www.google.com" style="color:black;text-decoration: none;">Iya</a>
-                      </button>
-                      
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-              
-            </div>
-            
-            </body>
+            <button type="button" class="btn btn-info btn-lg bg-primary" data-toggle="modal" data-target="#myModal">Welcome, <%= nama %></button>
           </li>
         </ul>
-      </div> 
-
         <!-- Modal -->
-        <div class="modal" role="dialog">
+        <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
-                <p>Modal</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default bg-dark" data-dismiss="modal" style="color: white;">Close</button>
+                <p>Apakah anda yakin untuk logout?</p>
+                <br>
+                <button type="button" class="btn btn-default bg-secondary">
+                  <a href="/user/login" style="color: white; text-decoration: none;" >Yakin</a></button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default bg-dark" data-dismiss="modal" style="color: white;">Close</button>                      
+                </div>
               </div>
             </div>
           </div>
-          </div>
-        </nav>
-      
-
+        </div>
+    </nav>
+    
     <!--Carousell-->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
