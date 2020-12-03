@@ -394,32 +394,26 @@
     <center><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15866.845045144553!2d106.7891015!3d-6.1694043!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc0a066d78372614e!2sUniversitas%20Tarumanagara%20Kampus%20I!5e0!3m2!1sid!2sid!4v1602722093834!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></iframe></center>
     
 
-
-    <div class="panel panel-primary">
-      <div class="panel-heading text-white">
-          <center><h6 class="panel-title">Tinggalkan Komentar</h6></center>
-      </div>
-        <form action="POST" action="simpan_komentar.php">
-          <div class="form-group text-white">
-              <label>Nama : </label>
-              <input type="text" name="nama" class="form-control">
-          </div>
-
-          <div class="form-group text-white">
-            <label>Email : </label>
-            <input type="email" name="email" class="form-control">
+    <!--Comment Form-->> 
+    <div class="card container container-fluid"  style="background-color: black; height: auto; max-width:100rem;">
+          <div id="comment_form">
+            <h5 class="text-white">Kolom Komentar</h5>
+            <div class="form-group text-white">
+                <input type="text" name="name" id="name" value="" placeholder="Nama" style="width:15cm;">
+            </div>
+            <div class="form-group text-white">
+                <input type="email" name="email" id="email" value="" placeholder="Email" style="width:15cm;">
+            </div>
+            <div class="form-group text-white">
+                <textarea rows="10" name="comment" id="comment" placeholder="Masukkan Komentar" style="width:15cm;"></textarea>
+            </div>
+            <div>
+                <input type="submit" name="submit" value="Add Comment" class="btn btn-outline-dark" style="border-color: slategray;">
+            </div>
+          </div>  
         </div>
-
-        <div class="form-group text-white">
-          <label>Komentar : </label>
-          <textarea class="form-control" name="isi">Masukkan Komentar</textarea>
-      </div>
-
-      <div class="form-group text-white">
-        <button type="submit" name="simpan" class="btn btn-primary bg-dark">Simpan Komentar
     </div>
-        </form>
-      </div>
+
 
 
 </body>
