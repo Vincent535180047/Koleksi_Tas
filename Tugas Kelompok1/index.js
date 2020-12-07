@@ -9,7 +9,7 @@ const app = express();
 
 const db = require('./public/js/db.js');
 
-const port = process.env.port || 3000
+
 
 // passport
 require('./public/js/passport')(passport);
@@ -71,6 +71,8 @@ const user = require('./routes/user')
 
 app.use('/', index);
 app.use('/user', user);
+
+const port = process.env.port || 3000
 
 app.listen(3000);
 console.log('Server runs at port 3000...');
