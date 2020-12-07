@@ -9,6 +9,8 @@ const app = express();
 
 const db = require('./public/js/db.js');
 
+const port = process.env.port || 3000
+
 // passport
 require('./public/js/passport')(passport);
 
