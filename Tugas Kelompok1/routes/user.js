@@ -9,6 +9,10 @@ router.get("/login", (req, res) => res.render("pages/login"));
 
 router.get("/register", (req, res) => res.render("pages/register"));
 
+router.get("/input", (req, res) => res.render("pages/input"));
+
+router.get("/admin", (req, res) => res.render("pages/admin"));
+
 //login handle
 router.post("/login", (req, res, next) => {
     passport.authenticate("local", {
