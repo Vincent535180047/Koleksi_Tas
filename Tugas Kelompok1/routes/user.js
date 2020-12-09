@@ -22,6 +22,30 @@ router.post("/login", (req, res, next) => {
     })(req, res, next);
   });
 
+  // login admin handle
+  router.post("/admin", (req, res, next) => {
+    const nama_admin = req.body.nama_admin;
+    const pass = req.body.pass;
+
+    let errors_admin = []
+
+    if (nama_admin == "admin" && pass == "admin"){
+      res.redirect('/user/input');
+    }
+    else {
+      errors_admin.push({ msg: "Admin anda salah !!" });
+    }
+
+    if (errors_admin > 0){[
+      res.render("pages/admin", {
+        errors_admin,
+        nama_admin,
+        pass
+      })
+    ]}
+
+  });
+
 router.post('/register', async (req, res) => {
     const email = req.body.email;
     const nama = req.body.nama;
