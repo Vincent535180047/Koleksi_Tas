@@ -1,5 +1,13 @@
 const mongoose = require("mongoose"),
     koleksiSchema = mongoose.Schema({
+        jenis: {
+            type: String,
+            required: true,
+        },
+        merk: {
+            type: String,
+            required: true,
+        },
         namaproduct: {
             type: String,
             required: true,
@@ -21,6 +29,10 @@ const mongoose = require("mongoose"),
             required: true,
         },
         harga: {
+            type: String,
+            required: true,
+        },
+        link_beli: {
             type: String,
             required: true,
         },
