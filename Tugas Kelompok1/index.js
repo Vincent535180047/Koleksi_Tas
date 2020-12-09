@@ -7,7 +7,7 @@ const layouts = require('express-ejs-layouts');
 
 const app = express();
 
-const port = process.env.port || 3000
+
 const db = require('./public/js/db.js');
 
 
@@ -74,6 +74,6 @@ app.use('/', index);
 app.use('/user', user);
 
 
-
+let port = process.env.port || 3000;
 app.listen(3000);
 console.log('Server runs at port 3000...');
