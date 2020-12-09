@@ -10,8 +10,6 @@ const app = express();
 
 const db = require('./public/js/db.js');
 
-
-
 // passport
 require('./public/js/passport')(passport);
 
@@ -68,11 +66,12 @@ app.set("layout extractScripts", true)
 
 // routes
 const index = require('./routes/index');
-const user = require('./routes/user')
+const user = require('./routes/user');
+const upload = require('./routes/upload');
 
 app.use('/', index);
 app.use('/user', user);
-
+app.use('/upload', upload);
 
 let port = process.env.port || 3000;
 app.listen(3000);

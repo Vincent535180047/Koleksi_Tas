@@ -9,11 +9,7 @@ router.get("/login", (req, res) => res.render("pages/login"));
 
 router.get("/register", (req, res) => res.render("pages/register"));
 
-router.get("/input", (req, res) => res.render("pages/input"));
-
-router.get("/admin", (req, res) => res.render("pages/admin"));
-
-//login handle
+// login handle
 router.post("/login", (req, res, next) => {
     passport.authenticate("local", {
       successRedirect: "/",
@@ -22,79 +18,7 @@ router.post("/login", (req, res, next) => {
     })(req, res, next);
   });
 
-// login admin handle
-  router.post("/admin", async (req, res, next) => {
-    const nama_admin = req.body.nama_admin;
-    const pass = req.body.pass;
-
-    let errors_admin = []
-
-    if (nama_admin == "admin" && pass == "admin"){
-      res.redirect('/user/input');
-    }
-    else {
-      errors_admin.push({ msg: "Admin anda salah !!" });
-    }
-
-    if (errors_admin.length > 0){[
-      res.render("pages/admin", {
-        errors_admin,
-        nama_admin,
-        pass
-      })
-    ]}
-
-  });
-
-// handle post input 
-  router.post('/input', async (req, res) => {
-    const nama_product = req.body.nama_product;
-    const material = req.body.material;
-    const warna = req.body.warna;
-    const ukuran = req.body.ukuran;
-    const harga = req.body.harga;
-    const gambar = req.body.gambar;
-
-    let errors_input = []
-
-    if (!nama_product || !material || !warna || !ukuran || !harga || !gambar) {
-        errors_input.push({ msg: "Harap isi semua data yang di minta" });
-    }
-
-    if (errors_input.length > 0) {
-        res.render("pages/input", {
-          errors_input,
-          nama_product,
-          material,
-          warna,
-          ukuran,
-          harga,
-          gambar,
-        });
-    } 
-    else {
-      const newTas = new Tas({
-        nama_product,
-        material,
-        warna,
-        ukuran,
-        harga,
-        gambar,
-      });
-
-      newTas
-        .save()
-        .then((tas) => {
-          req.flash(
-            "success_msg",
-            "Anda berhasil input tas, Silahkan Login"
-          );
-          res.redirect("/user/login");
-        })  
-  };
-});
-
-// untuk post register
+// post register
 router.post('/register', async (req, res) => {
     const email = req.body.email;
     const nama = req.body.nama;
