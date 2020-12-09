@@ -7,8 +7,10 @@ body {
 }
 
 nav ul li:hover{
-  background-color: rgb(24, 24, 155);
+  background-color: rgba(24, 24, 155, 0.801);
+  border-radius: 25px;
 }
+
 nav ul li{
   list-style-type: none;
   display: inline-block;
