@@ -1,13 +1,5 @@
 const mongoose = require("mongoose"),
     koleksiSchema = mongoose.Schema({
-        jenis: {
-            type: String,
-            required: true,
-        },
-        merk: {
-            type: String,
-            required: true,
-        },
         namaproduct: {
             type: String,
             required: true,
@@ -32,7 +24,6 @@ const mongoose = require("mongoose"),
             type: String,
             required: true,
         },
-<<<<<<< HEAD
         gambar: {
             type: Buffer,
             required: true,
@@ -42,19 +33,16 @@ const mongoose = require("mongoose"),
             required: true,
         },
         merk: {
-=======
-        link_beli: {
             type: String,
             required: true,
         },
         gambar:{
->>>>>>> e0d5a44eee0f207fc8eec88fb1dc73840e391176
             type: String,
             required: true,
         },
         link:{
             type: String,
             required: true,
-        },
+        }
     });
 module.exports = mongoose.model("Koleksi", koleksiSchema);
