@@ -31,13 +31,7 @@ router.get("/admin", (req, res) => res.render("pages/admin"));
   });
 
 // handle post input 
-<<<<<<< Updated upstream
-  router.post('/input', upload.single('gambar'), async (req, res) => {
-=======
-  router.post('/input', async (req, res, next) => {
-    const jenis = req.body.jenis;
-    const merk = req.body.merk;
->>>>>>> Stashed changes
+  router.post('/input', async (req, res) => {
     const namaproduct = req.body.namaproduct;
     const material = req.body.material;
     const warna = req.body.warna;
