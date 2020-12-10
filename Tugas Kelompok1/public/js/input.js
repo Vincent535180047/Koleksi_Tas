@@ -36,10 +36,6 @@ const mongoose = require("mongoose"),
             type: String,
             required: true,
         },
-        gambar:{
-            type: String,
-            required: true,
-        },
         link:{
             type: String,
             required: true,

@@ -1,20 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser');
-const bcrypt = require("bcryptjs");
-const multer = require('multer');
-const GridFsStorage = require('multer-gridfs-storage');
-const Grid = require('gridfs-stream');
-const crypto = require('crypto');
-const path = require('path');
-const app = express();
-
+//const bcrypt = require("bcryptjs");
+// const multer = require('multer');
+//const upload = multer({ dest: 'upload/'});
+//const GridFsStorage = require('multer-gridfs-storage');
+//const Grid = require('gridfs-stream');
+//const crypto = require('crypto');
+//const path = require('path');
 
 const Koleksi = require('../public/js/input')
 
 router.get("/input", (req, res) => res.render("pages/input"));
 
 router.get("/admin", (req, res) => res.render("pages/admin"));
+
 
   router.post("/admin", async (req, res, next) => {
     const namaadmin = req.body.namaadmin;
@@ -42,7 +41,6 @@ router.get("/admin", (req, res) => res.render("pages/admin"));
     const merk = req.body.merk;
     const gambar = req.body.gambar;
     const link = req.body.link;
-
 
     let errors = []
 
