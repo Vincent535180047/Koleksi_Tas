@@ -9,7 +9,7 @@ const mongoose = require("mongoose"),
             required: true,
         },
         warna: {
-            type: String,
+            type: Object,
             required: true,
         },
         pxlxt: {
