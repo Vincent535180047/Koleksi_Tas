@@ -68,10 +68,12 @@ app.set("layout extractScripts", true)
 const index = require('./routes/index');
 const user = require('./routes/user');
 const upload = require('./routes/upload');
+const collect = require('./routes/collect')
 
 app.use('/', index);
 app.use('/user', user);
 app.use('/upload', upload);
+app.use('/collect', collect);
 
 let port = process.env.port || 3000;
 app.listen(3000);
