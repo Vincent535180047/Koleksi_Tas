@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
-//const bcrypt = require("bcryptjs");
-// const multer = require('multer');
-//const upload = multer({ dest: 'upload/'});
-//const GridFsStorage = require('multer-gridfs-storage');
-//const Grid = require('gridfs-stream');
-//const crypto = require('crypto');
-//const path = require('path');
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: 'upload/',
+  filename: function(req, file, cb){
+    cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
 
 const Koleksi = require('../public/js/input')
 
@@ -29,8 +31,9 @@ router.get("/admin", (req, res) => res.render("pages/admin"));
     }
   });
 
-// handle post input 
-  router.post('/input', async (req, res) => {
+// handle post input
+var upload = multer({ storage: storage })
+  router.post('/input', upload.single('gambar') , (req, res) => {
     const namaproduct = req.body.namaproduct;
     const material = req.body.material;
     const warna = req.body.warna;
@@ -39,13 +42,13 @@ router.get("/admin", (req, res) => res.render("pages/admin"));
     const harga = req.body.harga;
     const tas = req.body.tas;
     const merk = req.body.merk;
-    const gambar = req.body.gambar;
+    const gambar = req.file.filename;
     const link = req.body.link;
 
     let errors = []
 
     if (!namaproduct || !material || !warna || !pxlxt || !lainnya || !harga || !tas || !merk || !gambar || !link) {
-        errors.push({ msg: "Harap isi semua data yang di minta" });
+      errors.push({ msg: "Harap isi semua data yang di minta" });
     }
 
     if (errors.length > 0) {

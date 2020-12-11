@@ -25,7 +25,7 @@ const mongoose = require("mongoose"),
             required: true,
         },
         gambar: {
-            type: Buffer,
+            type: String,
             required: true,
         },
         tas: {
