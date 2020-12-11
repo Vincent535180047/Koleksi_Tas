@@ -68,12 +68,16 @@ app.set("layout extractScripts", true)
 const index = require('./routes/index');
 const user = require('./routes/user');
 const upload = require('./routes/upload');
-const collect = require('./routes/collect')
+const collect = require('./routes/collection');
+const taspria = require('./routes/taspria');
+const taswanita = require('./routes/taswanita');
 
 app.use('/', index);
 app.use('/user', user);
 app.use('/upload', upload);
-app.use('/collect', collect);
+app.use('/collection', collect);
+app.use('/taspria', taspria);
+app.use('/taswanita', taswanita);
 
 let port = process.env.port || 3000;
 app.listen(3000);
