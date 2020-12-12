@@ -12,7 +12,7 @@ router.get("/register", (req, res) => res.render("pages/register"));
 // login handle
 router.post("/login", (req, res, next) => {
     passport.authenticate("local", {
-      successRedirect: "/",
+      successRedirect: "/home",
       failureRedirect: "/user/login",
       failureFlash: true,
     })(req, res, next);
