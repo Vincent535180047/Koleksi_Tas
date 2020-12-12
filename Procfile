@@ -1,1 +1,1 @@
-web:node "Koleksi_Tas/Tugas Kelompok1/index.js"
+web:node "Tugas Kelompok1/index.js"
