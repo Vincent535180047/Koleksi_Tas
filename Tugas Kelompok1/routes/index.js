@@ -6,7 +6,7 @@ const { ensureAuthenticated } = require("../public/js/auth");
 const { route } = require('./upload');
 
 //abis login pindah home
-router.get("/home", ensureAuthenticated, (req, res) =>
+router.get("/", ensureAuthenticated, (req, res) =>
   res.render("pages/home", {
     nama: req.user.nama,
   })
