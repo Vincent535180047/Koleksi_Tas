@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 //const Grid = require('gridfs-stream');
 //let gfs;
-const dbUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017/db_koleksi_tas';
+const dbUrl = process.env.MONGODB_URI || 'mongodb+srv://User:user@cluster0.iyla9.mongodb.net/db_koleksi_tas?retryWrites=true&w=majority'; //'mongodb://localhost:27017/db_koleksi_tas';
 mongoose.connect(
 dbUrl,
 { useNewUrlParser: true }
