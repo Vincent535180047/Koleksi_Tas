@@ -1,1 +1,1 @@
-web: cd "Tugas Kelompok1" && node "Tugas Kelompok1/index.js"
+web: cd "Tugas Kelompok1" && node index.js
