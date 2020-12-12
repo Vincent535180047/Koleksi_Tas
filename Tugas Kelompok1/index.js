@@ -3,10 +3,8 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require("connect-flash");
 const passport = require("passport");
-const layouts = require('express-ejs-layouts');
 
 const app = express();
-
 
 const db = require('./public/js/db.js');
 
@@ -22,15 +20,7 @@ app.use(bodyParser.urlencoded());
 // static files
 app.use(express.static('public'));
 
-// enabling session
-//app.use(session({
-//  secret: 'some_secret_key',
-//  cookie: {}
-//}));
-
-
 // express session middleware
-
 app.use(
   session({
     secret: "rahasia",
@@ -53,10 +43,6 @@ app.use((req, res, next) => {
   res.locals.error = req.flash("error");
   next();
 });
-
-// use layouts
-//app.use(layouts);
-//app.set('layout', 'layouts/main.ejs');
 
 // place all styles block in the layout at the head
 app.set("layout extractStyles", true)
