@@ -1,0 +1,1 @@
+web:node "Koleksi_Tas/Tugas Kelompok1/index.js"
