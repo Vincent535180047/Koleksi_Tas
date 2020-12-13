@@ -69,3 +69,13 @@ nav {
   background-image: url(../img/triangle-mosaic.png);
   padding: 1.5rem;
 }
+
+#who{
+  padding-top: 50px;
+}
+
+iframe{
+  padding-top: 30px;
+  padding-bottom: 50px;
+  width: 600px;
+}

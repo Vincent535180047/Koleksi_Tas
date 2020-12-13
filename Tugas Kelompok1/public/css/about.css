@@ -46,10 +46,10 @@ p.nama{
 
 .column{
     background-color: rgba(255, 255, 255, 0.5);
-    margin-left: 20px;
+    margin-left: 28px;
     padding: 20px;
-    margin-right: 50px;
-    
+    margin-right: 30px;
+    width: 150px;
 }
 
 img.profile{
